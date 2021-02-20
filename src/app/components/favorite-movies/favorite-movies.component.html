@@ -1,0 +1,23 @@
+<div class="row" *ngIf="!isLoading ; else progress">
+  <div *ngFor="let movie of favoriteMovies | dynamicPipe : pipe" class="col-md-3 col-sm-12 mb-4">
+    <mat-expansion-panel (opened)="showedDetails = true" (closed)="showedDetails = false" hideToggle>
+      <mat-expansion-panel-header [collapsedHeight]="'480px'" [expandedHeight]="'500px'">
+        <mat-panel-description>
+          <img mat-card-image src="{{movie.poster_path}}" class="image">
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <i (click)="deleteFromFavorite(movie.id)" class="m-3">
+        <mat-icon *ngIf="!movie.is_favorite" color="white">favorite</mat-icon>
+        <mat-icon *ngIf="movie.is_favorite" color="primary">favorite</mat-icon>
+      </i>
+      <p>{{movie.title}}</p>
+      <p>Sipnosis: {{movie.overview}}</p>
+      <p>Año de publicación: {{movie.release_date}}</p>
+      <p>Calificación: {{movie.popularity}}</p>
+    </mat-expansion-panel>
+  </div>
+</div>
+
+<ng-template #progress>
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</ng-template>

@@ -1,0 +1,10 @@
+.dialog-modal {
+    width: 700px;
+    height: auto;
+}
+
+.card-image {
+    width: 200px;
+    height: auto;
+    margin: 5px;
+}

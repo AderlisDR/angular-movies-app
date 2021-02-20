@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <div class="col-2 d-flex align-items-end flex-column">
+    <h2>Movie App</h2>
+  </div>
+  <div class="col-10 d-flex align-items-end flex-column">
+    <i [matMenuTriggerFor]="menu"><p class="filter-style">Ordenado por: {{orderValueName}}</p></i>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="setOrderedValue(orderByNamePipe)">Nombre</button>
+      <button mat-menu-item (click)="setOrderedValue(orderByDatePipe)">Año de publicación</button>
+      <button mat-menu-item (click)="setOrderedValue(orderByClassificationPipe)">Calificación</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<mat-tab-group backgroundColor="primary" mat-align-tabs="center" mat-stretch-tabs class="example-stretched-tabs"
+  (selectedTabChange)="matTabChangeEvent($event)">
+  <mat-tab label="Las mejores películas">
+    <app-best-movies [topRatedMovies]="topRatedMovies" [pipe]="pipe"></app-best-movies>
+  </mat-tab>
+  <mat-tab label="Tus películas favoritas">
+    <app-favorite-movies [favoriteMovies]="favoriteMovies" [pipe]="pipe"></app-favorite-movies>
+  </mat-tab>
+</mat-tab-group>

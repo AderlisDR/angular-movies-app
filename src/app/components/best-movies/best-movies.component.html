@@ -1,0 +1,15 @@
+<div class="row" *ngIf="!isLoading ; else progress">
+  <div *ngFor="let movie of topRatedMovies | dynamicPipe : pipe" class="col-md-4 col-sm-12 mb-4 card-style">
+      <i (click)="changeFavoriteStatus(movie)" class="m-3">
+        <mat-icon *ngIf="!movie.is_favorite" color="white">favorite</mat-icon>
+        <mat-icon *ngIf="movie.is_favorite" color="primary">favorite</mat-icon>
+      </i>
+    <mat-card (click)="showDetailsModal(movie)">
+      <img mat-card-image src="{{movie.poster_path}}" />
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #progress>
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</ng-template>

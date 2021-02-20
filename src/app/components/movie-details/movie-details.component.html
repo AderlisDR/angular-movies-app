@@ -1,0 +1,9 @@
+<h3 mat-dialog-title>{{movie.title}}</h3>
+<div mat-dialog-content class="dialog-modal">
+  <span>Calificación: {{movie.popularity}}</span><br>
+  <p>Año de publicación: {{movie.release_date}}</p>
+  <p>Sipnosis: {{movie.overview}}</p>
+  <div class="d-flex justify-content-center">
+    <img mat-card-image class="card-image" src="{{movie.poster_path}}">
+  </div>
+</div>

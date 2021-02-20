@@ -1,0 +1,20 @@
+.mat-icon {
+    transform: scale(1.8);
+}
+
+span {
+    z-index: 10;
+}
+
+i :hover {
+    cursor: pointer;
+}
+
+i {
+    position: absolute;
+    z-index: 1;
+}
+
+card-style {
+    position: relative;
+}
